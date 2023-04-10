@@ -48,6 +48,8 @@ ex.delete("/del-post/:id", async (req, res) => {
 })
 
 ex.post("/add-post", (req, res) => {
+    res.status(202).json("ROUTE WORK")
+    /*
     // Create form || Multiparty
     let form = new multiparty.Form({
         uploadDir: IMAGE_UPLOAD_DIR
@@ -79,9 +81,9 @@ ex.post("/add-post", (req, res) => {
         .then(data => res.status(200).json(data))
         .catch(err => res.status(500).json("field"))
 
-        */
+       
     })
-
+      */
 })
 
 ex.get("/data/posts", async (req, res) => {
