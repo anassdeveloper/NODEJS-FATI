@@ -72,13 +72,14 @@ ex.post("/add-post", (req, res) => {
             url: fields.link[0],
             date: '09-04-2023'
         };
-
+        res.json(newPost);
+        /*
         let post = new Fati(newPost);
         post.save()
         .then(data => res.status(200).json(data))
         .catch(err => res.status(500).json("field"))
 
-        
+        */
     })
 
 })
