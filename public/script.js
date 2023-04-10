@@ -19,7 +19,7 @@
         }
         fetchData();
 
-        my_form.addEventListener('submit', e => {
+        my_form.addEventListener('submit', async e => {
             e.preventDefault();
             let userVal = text.value;
             let fileVal = file.value;
@@ -30,19 +30,35 @@
             if(!userVal || !fileVal) return createMsg("من فضلك تأكد من ملأ البيانات ", "orange");
 
             let formData = new FormData();
-            Array.from(files).forEach(file => {
+            /*Array.from(files).forEach(file => {
                formData.append('files', file, file.name);
-            });
-
+            });*/
+            
+            try{
+              const base64 = await convertToBase64(files[0]);
+              
+            }catch(err){
+               console.error(err)
+            }
+            /*
             formData.append(text.name, userVal);
             formData.append("age", "26");
             formData.append("text", desVal);
             formData.append('link', linkVal);
             formData.append('category', categoryVal);
-
+            */
             fetch("https://calm-ruby-quail-veil.cyclic.app/add-post", {
                 method: 'post',
-                body: formData
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    fileImage: base64,
+                    title: userVal,
+                    url: linkVal,
+                    category: categoryVal,
+                    text: desVal
+                })
             }).then(res => {
                 console.log(res.status)
                 createMsg("تم إضافة المقال بنجاح", "green");
@@ -59,8 +75,9 @@
             
         });
 
-        file.addEventListener('change', e => {
+        file.addEventListener('change', async e => {
             files = e.target.files;
+            
         })
 
 
@@ -122,4 +139,13 @@
                 err_msg.innerHTML = "";
                 err_msg.style.opacity = 0;
             }, 3000);
+        }
+
+        function convertToBase64(file){
+            return new Promise((resolve, reject) => {
+                const fileReader = new FileReader();
+                fileReader.readAsDataURL(file);
+                fileReader.onload = () => resolve(fileReader.result);
+                fileReader.onerror = error => reject(error);
+            })
         }

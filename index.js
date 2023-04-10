@@ -33,6 +33,7 @@ const connectDB = async () => {
 
 ex.use(express.static('public'));
 ex.use(cors());
+ex.use(express.json());
 
 //https://sparkling-swimsuit-fawn.cyclic.app
 // ROUTES
@@ -48,7 +49,7 @@ ex.delete("/del-post/:id", async (req, res) => {
 })
 
 ex.post("/add-post", (req, res) => {
-    res.status(202).json("ROUTE WORK")
+    res.status(202).json(req.body)
     /*
     // Create form || Multiparty
     let form = new multiparty.Form({
