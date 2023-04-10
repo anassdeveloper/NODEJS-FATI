@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: sans-serif;
+    line-height: 1.4;
+    font-weight: 400;
+    color: #333;
+}
+
+.error-msg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ccc;
+    width: 100%;
+    padding: 2rem;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+}
+.error-msg span{
+    font-size: 2.4rem;
+    color: #fff;
+}
+
+/*-----------------------START DESIGN TABLE--------------*/
+
+table{
+    border: 1px solid black;
+    margin-bottom: 4.2rem;
+    border-collapse: collapse;
+}
+
+table thead{ 
+    background-color: red;
+    
+}
+table thead th{
+    font-size: 2rem;
+    padding: 5px 10px;
+}
+table thead th img {
+    width: 50px;
+}
+
+#table-img{
+    width: 10rem;
+}
+
+table tbody td {
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 1.6rem;
+}

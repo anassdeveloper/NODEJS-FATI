@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<style>
+
+    form{
+        max-width: 600px;
+        margin: 0 auto;
+        border: 1px solid orange;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    label, input, textarea{
+        display: block;
+        width: 100%;
+        font-size:2rem;
+        margin-bottom: 1.2rem;
+    }
+    input{
+        padding: .5rem 1rem;
+        
+    }
+    input[type="file"]{
+        display:none;
+    }
+    .label-btn{
+        height: 200px;
+        cursor: pointer;
+        border:1px dashed #777;
+        border-radius: .4rem;
+        color: #777;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 26px;
+    }
+</style>
+<body>
+    <div class="error-msg"></div>
+    <div class="container">
+        <header class="header">
+            <div class="box-logo">
+                <h2>Fati-Data</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <span>Post Delete</span>
+                        <span></span>
+                    </li>
+                    <li>
+                        <span>views</span>
+                        <span>187k</span>
+                    </li>
+                    <li>
+                        <span>All Posts</span>
+                        <span>20</span>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <form id="my-form">
+            <div class="form-grp">
+                <label for="filename" class="label-btn">
+                    <span>Photo</span>
+                    <span><i class="fa-regular fa-image"></i></span>
+                </label>
+                
+                <input type="file" id="filename" />
+            </div>
+            <div class="form-grp">
+                <label for="title">Create Title of Post</label>
+                <input type="text" name="title" id="title" />
+            </div>
+            <div class="form-grp">
+                <label for="link">Add URL link :</label>
+                <input type="url" name="link" id="link" placeholder="http://example.com"/>
+            </div>
+            <div class="form-grop">
+                <select name="category" id="category">
+                    <option value="sport">SPORTS</option>
+                    <option value="design"> Design</option>
+                    <option value="food">Food</option>
+                </select>
+            </div>
+            
+            <div class="form-grp">
+                <label for="text">Write a Text</label>
+                <textarea name="des" id="des" cols="30" rows="10"></textarea>
+            </div>
+            <input type="submit" value="send">
+        </form>
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>URL : LINK</th>
+                        <th> Text </th>
+                        <th>Edit</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody class="t-body">
+                    
+                </tbody>
+            </table>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
