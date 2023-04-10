@@ -11,7 +11,7 @@
         let files;
 
         const fetchData = () => {
-            fetch("http://localhost:4000/data/posts")
+            fetch("https://calm-ruby-quail-veil.cyclic.app/data/posts")
             .then(res => res.json())
             .then(data => {
                 createTR(data)
@@ -40,7 +40,7 @@
             formData.append('link', linkVal);
             formData.append('category', categoryVal);
 
-            fetch("http://localhost:4000/add-post", {
+            fetch("https://calm-ruby-quail-veil.cyclic.app/add-post", {
                 method: 'post',
                 body: formData
             }).then(res => {
@@ -81,7 +81,7 @@
                 <td>${tr.text.slice(0, 10)}...</td>
                 <td><i class="fa-sharp fa-solid fa-pen-to-square"></i></td>
                 <td>
-                   <span data-link="http://localhost:4000/del-post/${tr._id}" class="rm-btn">
+                   <span data-link="https://calm-ruby-quail-veil.cyclic.app/del-post/${tr._id}" class="rm-btn">
                      <i class="fa-solid fa-trash-can"></i>
                    </span>
                 </td>
