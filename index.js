@@ -3,12 +3,13 @@ const express = require("express");
 const multiparty = require("multiparty");
 const mongoose = require("mongoose");
 const Fati = require('./models/fatiModel');
+let cors = require("cors");
 
 const ex = express();
 const PORT = process.env.PORT || 4000;
 //const URI = "mongodb://0.0.0.0:27017/fati";
 const IMAGE_UPLOAD_DIR = "./public/images";
-const IMAGE_BASE_URL = "http://localhost:4000/images/";
+//const IMAGE_BASE_URL = "http://localhost:4000/images/";
 
 mongoose.set('strictQuery', false);
 // production url : process.env.MONGO_URI
@@ -31,7 +32,9 @@ const connectDB = async () => {
 //MIDDELWARES
 
 ex.use(express.static('public'));
+ex.use(cors());
 
+//https://sparkling-swimsuit-fawn.cyclic.app
 // ROUTES
 ex.get("/", (req, res) => res.send('HOME PAGE'));
 
